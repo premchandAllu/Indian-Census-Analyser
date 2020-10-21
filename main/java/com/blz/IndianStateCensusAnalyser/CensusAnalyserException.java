@@ -1,9 +1,16 @@
 package com.blz.IndianStateCensusAnalyser;
 
-@SuppressWarnings("serial")
 public class CensusAnalyserException extends Exception {
+
+	private static final long serialVersionUID = 1L;
+
+	public CensusAnalyserException(String message, String name) {
+		super(message);
+		this.type = ExceptionType.valueOf(name);
+	}
+
 	enum ExceptionType {
-		CENSUS_FILE_EXCEPTION
+		CENSUS_FILE_PROBLEM, CENSUS_FILE_EXCEPTION
 	}
 
 	ExceptionType type;
